@@ -12,16 +12,22 @@ button.addEventListener('click', (e) => {
     console.log(location)
     fetch(`/weather?address=${location}`)
     .then((response) => {
-    messageOne.textContent = 'Loading...'
+   
     response.json()
     .then((data) => {
         if(data.error){
             messageOne.textContent = data.error
         }else{
-            messageOne.textContent = data.forecast.forecast
-            messageTwo.textContent = data.location
-            console.log(data.forecast.forecast)
-            console.log(data.location)
+            setTimeout(() => {
+                messageOne.textContent = 'loading ... '
+            }, 500)
+            
+           
+            setTimeout(() => {
+                messageOne.textContent = data.forecast.forecast
+                messageTwo.textContent = data.location     
+            }, 1000)
+            
         }
     })
 })
