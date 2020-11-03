@@ -1,5 +1,3 @@
-console.log('This is a client side javascript')
-
 const form = document.querySelector('form')
 const search = document.querySelector('input')
 const button = document.querySelector('.btn')
