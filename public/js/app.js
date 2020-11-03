@@ -4,7 +4,7 @@ const button = document.querySelector('.btn')
 const messageOne = document.getElementById('message-1')
 const messageTwo = document.getElementById('message-2')
 
-messageOne.textContent = 'Loading...'
+
 messageTwo.textContent = ''
 
 button.addEventListener('click', (e) => {
@@ -12,6 +12,7 @@ button.addEventListener('click', (e) => {
     console.log(location)
     fetch(`/weather?address=${location}`)
     .then((response) => {
+    messageOne.textContent = 'Loading...'
     response.json()
     .then((data) => {
         if(data.error){
