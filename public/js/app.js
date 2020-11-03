@@ -7,7 +7,6 @@ const messageTwo = document.getElementById('message-2')
 messageOne.textContent = 'Loading...'
 messageTwo.textContent = ''
 
-
 button.addEventListener('click', (e) => {
     const location = search.value
     console.log(location)
@@ -23,7 +22,6 @@ button.addEventListener('click', (e) => {
             console.log(data.forecast.forecast)
             console.log(data.location)
         }
-       
     })
 })
     e.preventDefault()
