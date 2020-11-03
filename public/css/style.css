@@ -14,7 +14,10 @@ body{
 .main-content{
     flex-grow: 1;
 }
-
+.name{
+    text-decoration: none;
+    color: #444444;
+}
 input{
     width: 200px;
     height: 25px;

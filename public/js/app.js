@@ -3,12 +3,16 @@ const search = document.querySelector('input')
 const button = document.querySelector('.btn')
 const messageOne = document.getElementById('message-1')
 const messageTwo = document.getElementById('message-2')
+const picDiv = document.querySelector('.pic')
 
 
-messageTwo.textContent = ''
+
 
 button.addEventListener('click', (e) => {
     const location = search.value
+    messageOne.textContent = 'loading ... '
+    messageTwo.textContent = ''
+    picDiv.src = ''
     console.log(location)
     fetch(`/weather?address=${location}`)
     .then((response) => {
@@ -18,16 +22,9 @@ button.addEventListener('click', (e) => {
         if(data.error){
             messageOne.textContent = data.error
         }else{
-            setTimeout(() => {
-                messageOne.textContent = 'loading ... '
-            }, 500)
-            
-           
-            setTimeout(() => {
+                picDiv.src = data.forecast.img
                 messageOne.textContent = data.forecast.forecast
                 messageTwo.textContent = data.location     
-            }, 1000)
-            
         }
     })
 })
